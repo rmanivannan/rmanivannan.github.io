@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search FB Pages</title>
+  <meta charset="utf-8">
+  <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+  <div class="pageWrap">
+    <header>
+      <h1>Search FB Pages</h1>
+    </header>
+    <label for="accessToken">Add Your facebook  Access Token : </label>
+    <input type="text" id="accessToken" value="CAACEdEose0cBAAskOZBpz9WrK8tEMsZB8vbflQD3UGXx2OKXJMYM3lLPX78knBdhCCvED29mADbtSZAwuSR99FKTmyUhAJhwf2gkVyPE7p7bgV0awAOYVtwtdyVMR6K1wZCU9udnZBFZAN47tnk3vbWzEXm3pTl1MpHDZA2JSFuR8DsIifkEOZCVHSH8EjoKkaZARzawQ400kx4nZBaS4ZAS0Sl">
+    <p><strong>note: </strong>
+    go to <a href="https://developers.facebook.com/tools/explorer/" target="_blank">https://developers.facebook.com/tools/explorer/</a><br>
+    click on Get Access token button <br>
+    in popup click on "Extended Permissions" tab<br>
+    select manage_pages and click on get access button<br>
+    copy the Access token text field value and past on above field
+    </p>
+    <br>
+    <br>
+    <form method="post" action="javascript:void(0)" id="searchFbPages">
+      <label for="search">Search your FB pages: </label>
+      <input required type="text" id="search">
+      <input type="submit" value="Go">
+      <div class="rightCol">
+        <input type="button" class="showFavList" value="show favourite list">
+        <ol class="favList"></ol>
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
