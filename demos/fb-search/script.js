@@ -66,7 +66,7 @@
     //retuns DOM list items
     constructListHtml: function(items){
       var tempAr = [];
-      if (items.length){
+      if (items.length == 0){
         return '<li>There is no favorite list available</li>';
       }
       for(var i in items){
