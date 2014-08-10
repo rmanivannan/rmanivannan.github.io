@@ -22,6 +22,7 @@
       xmlhttp.send();
     },
 
+    //search event handling method
     searchFBPages: function(val){
       this.accessToken = document.querySelector('#accessToken').value;
       var payLoad = [
@@ -141,17 +142,19 @@
       if(!textElm.querySelector('ol.searchList'))
         textElm.appendChild(ulElem);
 
-
+      //search form subimt event binding
       textElm.addEventListener('submit',function(e){
         self.searchFBPages.call(self,e.target.children[1].value);
       },false);
 
       textElm.addEventListener('click',function(e){
         switch(e.target.getAttribute('class')){
+          //event delegation for fav button click event
           case 'favBtn':{
             self.changeFav.call(self,e.target);
             break;
           }
+          //event delegation for show fav list click event
           case 'showFavList':{
             self.showFavList.call(self,e.target);
             break;
