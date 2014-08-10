@@ -66,6 +66,9 @@
     //retuns DOM list items
     constructListHtml: function(items){
       var tempAr = [];
+      if (items.length){
+        return '<li>There is no favorite list available</li>';
+      }
       for(var i in items){
         var item = items[i];
         var favouriteBtnText = this.isFavouriteId(item.id) ? 'unfavorite' : 'favorite';
