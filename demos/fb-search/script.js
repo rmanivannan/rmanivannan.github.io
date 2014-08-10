@@ -12,11 +12,12 @@
       xmlhttp= window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
       xmlhttp.onreadystatechange = function(){
         if (xmlhttp.readyState == 4 && xmlhttp.status==200){
-          var jsonOb = eval('('+xmlhttp.responseText+')');
+          var jsonOb = JSON.parse(xmlhttp.responseText);
           callBack.call(self,jsonOb);
         }
         //@future action error handling code has to be added here
-      }
+        //passing the payLoad data on post request
+      };
       xmlhttp.open(method,url,true);
       xmlhttp.send();
     },
@@ -42,12 +43,12 @@
       if(res.data){
         this.constructListView(res.data, listCnt);
       }else if(res.error){
-        listCnt.innerHTML = '<li><p class=error>' + res.error.message + '</p></li>'
+        listCnt.innerHTML = '<li><p class=error>' + res.error.message + '</p></li>';
       }
     },
 
     //display favourite list
-    showFavList: function(e){
+    showFavList: function(){
       var listCnt = this.selector.querySelector('ol.favList');
       this.constructListView(this.getFavList(),listCnt);
     },
@@ -66,19 +67,22 @@
     //retuns DOM list items
     constructListHtml: function(items){
       var tempAr = [];
-      if (items.length == 0){
+      if (items.length === 0){
         return '<li>There is no favorite list available</li>';
-      }
-      for(var i in items){
-        var item = items[i];
-        var favouriteBtnText = this.isFavouriteId(item.id) ? 'unfavorite' : 'favorite';
-        tempAr.push(
-                      '<li>',
-                        '<strong>', item.name, '</strong>, category: ', item.category,
-                        '<br><input type=button class=favBtn data-index=', i ,' data-id=', item.id ,' value=', favouriteBtnText ,'>',
-                        '<br><a target="_blank" href="https://www.facebook.com/', item.id ,'">more...<a>',
-                      '</li>'
-                    );
+      }else{
+        for(var i in items){
+          if(i && items[i]){
+            var item = items[i];
+            var favouriteBtnText = this.isFavouriteId(item.id) ? 'unfavorite' : 'favorite';
+            tempAr.push(
+                          '<li>',
+                            '<strong>', item.name, '</strong>, category: ', item.category,
+                            '<br><input type=button class=favBtn data-index=', i ,' data-id=', item.id ,' value=', favouriteBtnText ,'>',
+                            '<br><a target="_blank" href="https://www.facebook.com/', item.id ,'">more...<a>',
+                          '</li>'
+                        );
+          }
+        }
       }
       return tempAr.join('');
     },
@@ -102,10 +106,11 @@
 
     //returns the fav list from ocalstorage
     getFavList: function(){
-      var arr = localStorage.getItem('favIdList') ? JSON.parse(localStorage.getItem('favIdList')) : {};
+      var arr = localStorage.getItem('favIdList') ? JSON.parse(localStorage.getItem('favIdList')) : {},
           favList = [];
       for(var i in arr){
-        favList.push(arr[i]);
+        if (i && arr[i])
+          favList.push(arr[i]);
       }
       return favList;
     },
@@ -126,9 +131,9 @@
     },
 
     //event binding
-    addEvent: function(selector){
+    addEvent: function(){
       var textElm = this.selector,
-      ulElem      = document.createElement('ol');
+      ulElem      = document.createElement('ol'),
       self        = this;
 
       ulElem.setAttribute('class','searchList');
@@ -138,7 +143,7 @@
 
 
       textElm.addEventListener('submit',function(e){
-        self.searchFBPages.call(self,e.target.children[1].value)
+        self.searchFBPages.call(self,e.target.children[1].value);
       },false);
 
       textElm.addEventListener('click',function(e){
@@ -159,7 +164,7 @@
     init:function(){
       this.addEvent();
     }
-  }
+  };
   
   }
   //initiate site functionality
