@@ -44,6 +44,13 @@ sc.exe create MongoDB binPath= "\"C:\MongoDB\bin\mongod.exe\" --service --config
 
 MongoDB service.
 --------------------------
-start  ==> net start MongoDB
-stop   ==> net stop MongoDB
-delete ==> sc.exe delete MongoDB
+start  ==> net start MongoDB \n
+stop   ==> net stop MongoDB \n
+delete ==> sc.exe delete MongoDB \n
+
+
+If there is any service issue 
+---------------------------------
+"C:\MongoDB\bin\mongod.exe" --remove
+
+
