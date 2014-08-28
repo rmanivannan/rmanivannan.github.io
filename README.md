@@ -13,9 +13,9 @@ C:\MongoDB\bin
 ==>mongo
 
 ==> execute mongodb comments
-to switch/create table ==> use <db name>
-db.newDB.insert({'mani':'vannan'})
-db.newDB.find()
+==> to switch/create table ==> use <db name>
+==> db.newDB.insert({'mani':'vannan'})
+==> db.newDB.find()
 
 ================================
 
