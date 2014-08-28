@@ -15,12 +15,11 @@ C:\MongoDB\bin
 ==> db.newDB.find()
 ```
 
-================================
-
 #Install mongodb and Start MongoDB services
-```
+
 http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/
 
+```
 make sure ur mongodb installation folder place outside programe files folder so that access issues will not be there or restart the mongodb wit "mongod --repair"
 
 start ==> cmd ==> right click ==> run as admin
