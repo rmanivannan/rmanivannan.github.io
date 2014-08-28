@@ -45,7 +45,7 @@ Create a configuration file.
 comments
 --------
 echo logpath=c:\data\log\mongod.log> "C:\MongoDB\mongod.cfg"
-echo dbpath=c:\data\db> "C:\MongoDB\mongod.cfg"
+echo dbpath=c:\data\db>> "C:\MongoDB\mongod.cfg"
 
 Manual Creation
 ---------------
