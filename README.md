@@ -13,6 +13,7 @@ C:\MongoDB\bin
 ==> to switch/create table ==> use <db name>
 ==> db.newDB.insert({'mani':'vannan'})
 ==> db.newDB.find()
+==> show tables
 ```
 
 #Install mongodb and Start MongoDB services
