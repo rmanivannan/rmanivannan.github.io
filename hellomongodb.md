@@ -4,9 +4,9 @@
 ```
 C:\MongoDB\bin
 ==> mongo.exe
-==> to switch/create table ==> use <db name>
-==> db.newDB.insert({'mani':'vannan'})
-==> db.newDB.find()
+==> to switch/create db ==> use <db name>
+==> db.tableName.insert({'mani':'vannan'})
+==> db.tableName.find()
 ==> show tables
 ```
 
