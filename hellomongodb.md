@@ -71,11 +71,3 @@ If there is any service issue
 ```
 "C:\MongoDB\bin\mongod.exe" --repair
 ```
-
-
-observations
-------------
-```
-instead of using global variables like "var express = require('express');" we can use formate like define(['expressUrl'],function(express){});
-```
-
