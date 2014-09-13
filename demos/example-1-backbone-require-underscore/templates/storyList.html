@@ -1,0 +1,18 @@
+<% if(!stories.length){%>
+  <p>There is no story found, Please click the above "add story button" to add the new story</p>
+<%}else{%>
+  <ol class="storyList">
+    <% _.each(stories, function(story,index){%>
+    <li draggable="true" ondragstart="imsGlobalMethods.drag(event)" id="storyList-<%=index%>">
+      <input type="hidden" value="<%=index%>">
+      <h3 ><%=story.title%></h3>
+      <% if(!isTaskBoard){%>
+      <p class="stickTopRight">
+        <input type="number" placeholder='priority' class='priorityTxtField' min='1' max='10' value="<%=story.priority%>">
+      </p>
+      <p class="desc clear"><%=story.description%></p>
+      <% }%>
+    </li>
+    <%}) %>
+  </ol>
+<%}%>

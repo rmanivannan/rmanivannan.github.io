@@ -1,0 +1,13 @@
+<div class="contentCenterAlign">
+  <a href="#" class="logo"><img src="images/sapient-logo.png"></a>
+  <nav>
+    <ul>
+      <%
+        _.each(menuList,function(item){
+            %><li><a href="<%=item.href%>" class="<%=item.cls%>"><%=item.name%></a></li><%
+          });
+      %>
+    </ul>
+  </nav>
+  <a href="javascript:void(0)" class="menuToggle">Menu</a>
+</div>

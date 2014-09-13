@@ -1,0 +1,22 @@
+<section class="contentCenterAlign">
+  <h1>Task Board</h1>
+  <section class="overFlowHid">
+    <div class="col-1-4">
+      <h2>Search Stories</h2>
+      <input type="text" placeholder="search" id="storySearchBox">
+      <ul class="storyList" id="taskBoardStoriestList"></ul>
+    </div>
+    <div class="col-1-4">
+      <h2>todo</h2>
+      <ul class="storyList" ondrop="imsGlobalMethods.drop(event)" ondragover="imsGlobalMethods.allowDrop(event)" id="taskBoardStoriestList-todo"></ul>
+    </div>
+    <div class="col-1-4">
+      <h2>inprogress</h2>
+      <ul class="storyList" ondrop="imsGlobalMethods.drop(event)" ondragover="imsGlobalMethods.allowDrop(event)" id="taskBoardStoriestList-inprogress"></ul>
+    </div>
+    <div class="col-1-4">
+      <h2>done</h2>
+      <ul class="storyList" ondrop="imsGlobalMethods.drop(event)" ondragover="imsGlobalMethods.allowDrop(event)" id="taskBoardStoriestList-done"></ul>
+    </div>
+  </section>
+</section>

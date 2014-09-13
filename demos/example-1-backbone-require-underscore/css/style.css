@@ -1,0 +1,355 @@
+div,body,img {
+  margin : 0;
+  padding: 0;
+  border : 0;
+}
+
+@font-face {
+ font-family: Armata-Regular-webfont;
+ src        : url('../fonts/Armata-Regular-webfont.svg'),
+ url('../fonts/Armata-Regular-webfont.ttf'),
+ url('../fonts/Armata-Regular-webfont.eot'), 
+ url('../fonts/Armata-Regular-webfont.woff');
+}
+
+* {
+  font-family: Armata-Regular-webfont;
+}
+
+body{
+  background: #80DBF8;
+  min-width:370px;
+}
+.contentCenterAlign {
+  width     : 960px;
+  margin    : 0 auto;
+  min-width : 350px;
+  background: #fff;
+  padding   : 10px;
+  position  : relative;
+}
+
+.screenReaderText {
+  position: absolute;
+  display : inline-block;
+  width   : 1px;
+  height  : 1px;
+  opacity : 0;
+}
+
+.padLeft20px {
+  padding-left: 20px;
+}
+
+#header {
+  background: #fff;
+  overflow  : hidden;
+  border-top: 15px solid #001C65;
+  box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.5);
+  position  : fixed;
+  width     : 100%;
+  z-index   : 10;
+}
+
+#header .logo {
+  display: block;
+  float  : left;
+}
+
+#header nav {
+  float: right;
+}
+
+#header nav ul {
+  list-style-type: none;
+  margin         : 0;
+  background: #ccc;
+}
+
+#header nav ul li {
+  float    : left;
+  overflow : hidden;
+  padding  : 26px 0 0 25px;
+  font-size: 15px;
+}
+
+#header nav ul li a {
+  text-decoration: none;
+  color: #999;
+}
+
+#header nav ul li a:hover,#header nav ul li a.active {
+  color : #001C65;
+}
+
+#mainContent {
+  overflow: hidden;
+  padding-top: 90px;
+}
+
+#mainContent h1 {
+  font-size    : 4em;
+  color        : #555;
+  border-bottom: 1px solid #999;
+  margin       : 0;
+  padding      : 25px 0 5px 0;
+}
+
+#mainContent .leftCol,#mainContent .rightCol {
+  margin-top: 20px;
+}
+
+#mainContent .leftCol {
+  float: left;
+  width: 225px;
+}
+
+#mainContent .leftCol #slideshow {
+  margin-top: 10px
+}
+
+#mainContent .rightCol {
+  width      : 700px;
+  margin-left: 50px;
+  float      : right;
+}
+
+#contactForm {
+  overflow  : hidden;
+  margin-top: 20px;
+}
+
+#contactForm input.textField,#contactForm input[type="submit"] {
+  border-radius: 3px;
+  border       : 1px solid #999;
+  width        : 350px;
+  padding      : 5px;
+  margin       : 5px 0;
+}
+
+#contactForm input[type="submit"] {
+  margin-left: 292px;
+  width      : 70px;
+  background : #ddd;
+}
+
+#contactForm .leftFormCnt {
+  float: left;
+  width: 400px;
+}
+
+#contactForm .rightFormCnt {
+  float: left;
+  width: 260px;
+}
+
+#contactForm .rightFormCnt h2 {
+  color  : #999;
+  margin : 0;
+  padding: 10px 0;
+}
+
+#contactForm .rightFormCnt .businessUnitFieldCnt {
+  background: #eee;
+  border    : 1px solid #aaa;
+  color     : #666;
+  padding   : 10px
+}
+
+#slideshow li {
+  position  : relative;
+  background: rgb(194,211,54);
+}
+
+#slideshow li img {
+  margin-top: -15px;
+}
+
+#slideshow li div {
+  position  : absolute;
+  bottom    : 0;
+  width     : 100%;
+  height    : 110px;
+  background: rgba(194,211,54,0.5);
+  padding   : 0 10px;
+  color     : #fff;
+}
+
+#fssPrev,#fssNext,#fssPlayPause {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+#fssList {
+  list-style : none;
+  width      : 100%;
+  text-align : center;
+  position   : relative;
+  margin-top : -18px;
+  margin-left: -27px;
+}
+
+#fssList li {
+  display      : block;
+  color        : #fff;
+  float        : right;
+  background   : #fff;
+  border-radius: 10PX;
+  margin       : 0 2px;
+}
+
+#fssList li a {
+  color    : #fff;
+  display  : block;
+  width    : 10px;
+  height   : 10px;
+  font-size: 1px
+}
+
+#fssList li.fssActive a {
+  font-weight: bold;
+  color      : #000;
+}
+
+#fssList li.fssActive {
+  background: #000;
+}
+
+.menuToggle{
+  display        : none;
+  /* text-align  : center; */
+  margin         : 0 auto;
+  background     : #eee;
+  padding        : 5px;
+  text-decoration: none;
+  float          : right;
+  margin-right   : 0;
+  margin-top     : 24px;
+  border         : 1px solid #666;
+  border-radius  : 4px;
+  color          : #000;
+  font-weight    : bold;
+  padding        : 5px 10px;
+}
+.successMsg{
+  background   : #F5F8DF;
+  border       : 1px solid #C2D337;
+  color        : #C2D337;
+  border-radius: 5px;
+  padding      : 10px;
+}
+
+#addStoryCnt{
+  display: none;
+}
+.floatRight{
+  float: right;
+}
+.floatleft{
+  float: left;
+}
+.clear{
+  clear: both;
+}
+
+p.desc {
+  overflow     : hidden;
+  text-overflow: ellipsis;
+  width        : 100%;
+  max-height   : 100px;
+}
+.col-1-4{
+  float: left;
+  width: 21%;
+  margin: 1%;
+  padding: 1%;
+  background: #ccc;
+  overflow: auto;
+}
+.col-1-4>ul{
+  height: 400px;
+}
+.overFlowHid{
+  overflow: hidden;
+}
+.storyList{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.storyList li{
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.storyList li .stickTopRight{
+  position: absolute;
+  right: 0;
+  top: 0
+}
+.addStotiesCnt{
+  width: 300px;
+  margin: 10px auto;
+  background: #36BDF4;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+@media all and (max-width: 980px) {
+  .contentCenterAlign {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .col-1-4{
+    width: 46%;
+    margin: 1%;
+    padding: 1%;
+  }
+  .col-1-4:nth-child(3){
+    clear: both;
+  }
+}
+@media all and (max-width: 700px) {
+
+
+  #mainContent .leftCol, #mainContent .rightCol,#contactForm .leftFormCnt,#contactForm .rightFormCnt{
+    float      : none;
+    margin-left: 0;
+    width      : 95%;
+    margin     : 0 auto;
+  }
+
+  #contactForm input.textField, #contactForm input[type="submit"],successMsg{
+    width : 90%;
+    margin: 10px auto;
+    float : none;
+  }
+  .leftFormCnt{
+    text-align: center;
+  }
+  .menuToggle{
+    display: block;
+  }
+  #header nav{
+    display   : none; 
+    position  : absolute;
+    right: 20px;
+    top: 66px;
+    width: 48%;
+    box-shadow: 0 3px 3px 1px rgba(0,0,0,0.5);
+  }
+    #header nav ul li{
+      float     : none;
+      background: #ccc;
+      padding   : 10px 5px;
+  }
+  #header{
+    overflow: visible;
+  }
+  .col-1-4{
+    width: 100%;
+  }
+}
