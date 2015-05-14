@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script>
+    (function() {
+  // The width and height of the captured photo. We will set the
+  // width to the value defined here, but the height will be
+  // calculated based on the aspect ratio of the input stream.
+  var width = 320;    // We will scale the photo width to this
+  var height = 0;     // This will be computed based on the input stream
+  // |streaming| indicates whether or not we're currently streaming
+  // video from the camera. Obviously, we start at false.
+  var streaming = false;
+  // The various HTML elements we need to configure or control. These
+  // will be set by the startup() function.
+  var video = null;
+  var canvas = null;
+  var photo = null;
+  var startbutton = null;
+  function startup() {
+    video = document.getElementById('video');
+    canvas = document.getElementById('canvas');
+    photo = document.getElementById('photo');
+    startbutton = document.getElementById('startbutton');
+    navigator.getMedia = ( navigator.getUserMedia ||
+                           navigator.webkitGetUserMedia ||
+                           navigator.mozGetUserMedia ||
+                           navigator.msGetUserMedia);
+    navigator.getMedia(
+      {
+        video: true,
+        audio: false
+      },
+      function(stream) {
+        if (navigator.mozGetUserMedia) {
+          video.mozSrcObject = stream;
+        } else {
+          var vendorURL = window.URL || window.webkitURL;
+          video.src = vendorURL.createObjectURL(stream);
+        }
+        video.play();
+      },
+      function(err) {
+        console.log("An error occured! " + err);
+      }
+    );
+    video.addEventListener('canplay', function(ev){
+      if (!streaming) {
+        height = video.videoHeight / (video.videoWidth/width);
+      
+        // Firefox currently has a bug where the height can't be read from
+        // the video, so we will make assumptions if this happens.
+      
+        if (isNaN(height)) {
+          height = width / (4/3);
+        }
+      
+        video.setAttribute('width', width);
+        video.setAttribute('height', height);
+        canvas.setAttribute('width', width);
+        canvas.setAttribute('height', height);
+        streaming = true;
+      }
+    }, false);
+    startbutton.addEventListener('click', function(ev){
+      takepicture();
+      ev.preventDefault();
+    }, false);
+    
+    clearphoto();
+  }
+  // Fill the photo with an indication that none has been
+  // captured.
+  function clearphoto() {
+    var context = canvas.getContext('2d');
+    context.fillStyle = "#AAA";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    var data = canvas.toDataURL('image/png');
+    photo.setAttribute('src', data);
+  }
+  
+  // Capture a photo by fetching the current contents of the video
+  // and drawing it into a canvas, then converting that to a PNG
+  // format data URL. By drawing it on an offscreen canvas and then
+  // drawing that to the screen, we can change its size and/or apply
+  // other changes before drawing it.
+  function takepicture() {
+    var context = canvas.getContext('2d');
+    if (width && height) {
+      canvas.width = width;
+      canvas.height = height;
+      context.drawImage(video, 0, 0, width, height);
+    
+      var data = canvas.toDataURL('image/png');
+      photo.setAttribute('src', data);
+    } else {
+      clearphoto();
+    }
+    t();
+  }
+  // Set up our event listener to run the startup process
+  // once loading is complete.
+  window.addEventListener('load', startup, false);
+})();
+    
+    
+    </script>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+
+
+
+    <canvas id="myCanvas" width="600" height="65"></canvas>
+
+    <video id="video">Video stream not available.</video>
+    <button id="startbutton">Take photo</button> 
+    <canvas id="canvas">
+    </canvas>
+    <img id="photo" alt="The screen capture will appear in this box."> 
+  
+
+    <script>
+      //650 X 430 image
+      
+      var canvas = document.getElementById('myCanvas');
+      var contextImg = canvas.getContext('2d');
+      var imageObj = new Image();
+      //imageObj.src = 'mmm.jpg';
+      imageObj.src = 'card-2.png';
+      imageObj.onload = function() {
+        console.log('this--->',this.width)
+        //context.drawImage(imageObj, 0, 0, 273,185);
+        contextImg.drawImage(imageObj, 60, 240, 580,286,0,0,650,430);
+        t();
+      };
+      
+      var canvasWidth = canvas.width;
+      var canvasHeight = canvas.height;
+        // That's how you define the value of a pixel //
+        console.log(l);
+      function t(){
+        alert('jjj')
+        var newimageObj = document.getElementById('photo')
+        contextImg.drawImage(newimageObj, 0, 0, 273,185);
+    
+        var canvasData = contextImg.getImageData(0, 0, canvasWidth, canvasHeight);
+        var l = canvasData.data.length;
+          for(var i =0 ; i <= l ; i = i+4){
+              var grayVal = canvasData.data[i] * .21 + canvasData.data[i+1] * .72 + canvasData.data[i+2] * .07;             
+              //thresholdPoint need to get it from Histogram TBD
+              var thresholdPoint = 100;
+              grayVal = grayVal > thresholdPoint ? 255 : 0; 
+              canvasData.data[i] = grayVal;
+              canvasData.data[i+1] = grayVal;
+              canvasData.data[i + 2] = grayVal;
+              //canvasData.data[index + 3] = a; 
+              console.log(100*i/l , grayVal);
+          }
+          contextImg.putImageData(canvasData, 0, 0);
+        }
+        // That's how you update the canvas, so that your //
+        // modification are taken in consideration //
+        function updateCanvas() {
+        }
+        function drawPixel (x, y, r, g, b, a) {
+            var index = (x + y * canvasWidth) * 4;
+            canvasData.data[index + 0] = r;
+            canvasData.data[index + 1] = g;
+            canvasData.data[index + 2] = b;
+            canvasData.data[index + 3] = a;
+        }
+        // That's how you update the canvas, so that your //
+        // modification are taken in consideration //
+        function updateCanvas() {
+            ctx.putImageData(canvasData, 0, 0);
+        }
+        drawPixel(1, 1, 255, 0, 0, 255);
+        drawPixel(1, 2, 255, 0, 0, 255);
+        drawPixel(1, 3, 255, 0, 0, 255);
+        updateCanvas();
+    </script>
+  </script>
+  </body>
+</html      
+
+
+
+Status API Training Shop Blog About
+© 2015 GitHub, Inc. Terms Privacy Security Contact
