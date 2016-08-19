@@ -1,9 +1,14 @@
 <script>
 function postMsg(){
-  parent.postMessage(document.getElementById("msg").value,document.getElementById("domain").value+ "-1"); 
-  
-  window.opener.postMessage(document.getElementById("msg").value,document.getElementById("domain").value + "-2");
-  window.opener.parent.postMessage(document.getElementById("msg").value,document.getElementById("domain").value+ "-3");
+  try{
+    parent.postMessage(document.getElementById("msg").value,document.getElementById("domain").value+ "-1"); 
+  }catch(e){}
+  try{
+    window.opener.postMessage(document.getElementById("msg").value,document.getElementById("domain").value + "-2");
+  }catch(e){}
+  try{
+    window.opener.parent.postMessage(document.getElementById("msg").value,document.getElementById("domain").value+ "-3");
+  }catch(e){}
 }
 
 
