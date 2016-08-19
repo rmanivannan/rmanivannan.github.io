@@ -1,0 +1,8 @@
+<script>
+function postMsg(){
+  parent.postMessage(document.getElementById("msg").value,document.getElementById("domain").value); 
+}
+</script>
+
+<input id="msg" onchange="postMsg()" placeholder="Message" />
+<input id = "domain" placeholder="domainName"/>
