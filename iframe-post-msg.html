@@ -1,6 +1,9 @@
 <script>
 function postMsg(){
-  parent.postMessage(document.getElementById("msg").value,document.getElementById("domain").value); 
+  parent.postMessage(document.getElementById("msg").value,document.getElementById("domain").value+ "-1"); 
+  
+  window.opener.postMessage(document.getElementById("msg").value,document.getElementById("domain").value + "-2");
+  window.opener.parent.postMessage(document.getElementById("msg").value,document.getElementById("domain").value+ "-3");
 }
 
 
