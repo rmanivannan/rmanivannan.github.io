@@ -2,6 +2,20 @@
 function postMsg(){
   parent.postMessage(document.getElementById("msg").value,document.getElementById("domain").value); 
 }
+
+
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+// Listen to message from child window
+eventer(messageEvent,function(e) {
+    var key = e.message ? "message" : "data";
+    var data = e[key];
+    
+    alert("iframe:" + data)
+    //run function//
+},false);
 </script>
 
 Message: <input id="msg" onchange="postMsg()" placeholder="Message" /><br/>
