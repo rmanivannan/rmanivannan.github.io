@@ -55,6 +55,26 @@ console.log('formData',formData)
 $('#file').on('change' , onFileChange);
 
 
+function addMetaForURLBarTheme(name,content) {
+  var themeMetatag=document.createElement('meta');
+      themeMetatag.name = name;
+      themeMetatag.content = content;
+  document.getElementsByTagName('head')[0].appendChild(themeMetatag);
+}
+
+var primeryColor = issuerConfigUrl.application.primaryColor;
+if(primeryColor){
+  /* Chrome, Firefox OS and Opera */
+  addMetaForURLBarTheme("theme-color","#333");
+  /* Windows Phone */
+  addMetaForURLBarTheme("msapplication-navbutton-color","#333");
+  /* iOS Safari */
+  addMetaForURLBarTheme("apple-mobile-web-app-capable","yes");
+  addMetaForURLBarTheme("apple-mobile-web-app-status-bar-style","#333");
+}
+
+
+
 
 </script>
 </body>
