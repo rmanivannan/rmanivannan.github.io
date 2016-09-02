@@ -21,7 +21,7 @@ eventer(messageEvent,function(e) {
     var key = e.message ? "message" : "data";
     var data = e[key];
     
-    //alert("iframe:" + data)
+    alert("iframe:" + data)
     document.getElementById('i2').innerHTML = (data);
     //run function//
 },false);
