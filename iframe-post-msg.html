@@ -21,7 +21,8 @@ eventer(messageEvent,function(e) {
     var key = e.message ? "message" : "data";
     var data = e[key];
     
-    alert("iframe:" + data)
+    //alert("iframe:" + data)
+    document.getElementById('i2').innerHTML = (data);
     //run function//
 },false);
 </script>
@@ -29,3 +30,7 @@ eventer(messageEvent,function(e) {
 <h1>Child window</h1>
 Message: <input id="msg" onchange="postMsg()" placeholder="Message" /><br/>
 DomainName: <input id = "domain" placeholder="domainName"/> (http://www.w3schools.com)
+
+<br><br>
+Message from parent window: <i id="i2"></i>
+<br><br><br><br>
