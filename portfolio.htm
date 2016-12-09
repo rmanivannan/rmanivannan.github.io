@@ -116,16 +116,14 @@
   <script>
     var t=new Date(),
     dd= document.getElementById("theme"),
-    themeColor,
     isNight = t.getHours()<6||t.getHours()>18,
     themeCls = isNight ? "night" : "day";
     
     dd.value = themeCls;
     document.body.setAttribute("class",themeCls);
-    themeColor = isNight ? "#000" : "#fff";
     dd.onchange = function (e) {
       document.body.setAttribute("class",e.target.value);
-      updateUrlBarColor(e.target.value === "night" ? "#000" : "#fff")
+      updateUrlBarColor(e.target.value === "night")
     }
 
     function addMetaForURLBarTheme(name,content) {
@@ -134,13 +132,14 @@
       themeMetatag.content = content;
       document.getElementsByTagName('head')[0].appendChild(themeMetatag);
     }
-    function updateUrlBarColor(themeColor){
+    function updateUrlBarColor(isNight){
+      var themeColor = isNight ? "#000" : "#fff";
       addMetaForURLBarTheme("theme-color",themeColor);
       addMetaForURLBarTheme("msapplication-navbutton-color",themeColor);
       addMetaForURLBarTheme("apple-mobile-web-app-capable","yes");
       addMetaForURLBarTheme("apple-mobile-web-app-status-bar-style",themeColor);
     }
-    updateUrlBarColor(themeColor);
+    updateUrlBarColor(isNight);
 
   </script>
 </body></html>
