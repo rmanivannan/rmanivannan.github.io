@@ -117,9 +117,11 @@
     var t=new Date(),
     dd= document.getElementById("theme"),
     themeColor,
-    isNight = t.getHours()<6||t.getHours()>18);
+    isNight = t.getHours()<6||t.getHours()>18,
+    themeCls = isNight ? "night" : "day";
     
-    dd.value = isNight ? "night" : "day";
+    dd.value = themeCls;
+    document.body.setAttribute("class",themeCls);
     themeColor = isNight ? "#000" : "#fff";
     dd.onchange = function (e) {
       document.body.setAttribute("class",e.target.value);
