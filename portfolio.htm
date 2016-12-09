@@ -125,6 +125,7 @@
     themeColor = isNight ? "#000" : "#fff";
     dd.onchange = function (e) {
       document.body.setAttribute("class",e.target.value);
+      updateUrlBarColor(e.target.value === "night" ? "#000" : "#fff")
     }
 
     function addMetaForURLBarTheme(name,content) {
@@ -133,10 +134,13 @@
       themeMetatag.content = content;
       document.getElementsByTagName('head')[0].appendChild(themeMetatag);
     }
-    addMetaForURLBarTheme("theme-color",themeColor);
-    addMetaForURLBarTheme("msapplication-navbutton-color",themeColor);
-    addMetaForURLBarTheme("apple-mobile-web-app-capable","yes");
-    addMetaForURLBarTheme("apple-mobile-web-app-status-bar-style",themeColor);
+    function updateUrlBarColor(themeColor){
+      addMetaForURLBarTheme("theme-color",themeColor);
+      addMetaForURLBarTheme("msapplication-navbutton-color",themeColor);
+      addMetaForURLBarTheme("apple-mobile-web-app-capable","yes");
+      addMetaForURLBarTheme("apple-mobile-web-app-status-bar-style",themeColor);
+    }
+    updateUrlBarColor(themeColor);
 
   </script>
 </body></html>
