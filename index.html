@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>manivannan | ux &amp; javascript expert</title>
 </head>
-<body>
-  <header>
-    <i role="logo"> m </i> 
+<body class="night">
+  <header>  
+    <a role="logo" href="javascript:void(0)" class="logo"> m <i></i></a> 
     <div class="fr">
       <label for="theme">theme </label>
       <select id="theme">
@@ -16,7 +16,7 @@
       </select>
     </div> 
     <hr class="cb">
-    <ul>
+    <ul class="hSpace">
       <!--links need to be added-->
       <li><a href="https://www.linkedin.com/in/manivannan-radhakrishnan-1a447557" target="_blank">linkedin</a></li>
       <li><a href="http://stackoverflow.com/users/3834688/manivannan" target="_blank">stackoverflow</a></li>
@@ -27,8 +27,8 @@
     </ul>
   </header>
   <section>
-    <h1>manivannan an ux &amp; javascript expert</h1>
-    <p>i prefer to play with different, various &amp; new  ui elements and focus on delivering better usability &amp; efficient coding</p>
+    <h1>professional profile <br> manivannan : ux &amp; javascript expert</h1>
+    <p>i prefer to play with different, various &amp; new  ui elements and focus on developing best usability &amp; efficient coding</p>
     <ul>
       <li>javascript web application developer</li>
       <li>amateur photographer &amp; sketcher</li>
@@ -39,26 +39,24 @@
     </ul>
   </section>
   <section>
-    <h2>professional profile</h2>
-    <!--need to expand more-->
     <p>ux &amp; javascript expert with 6+ years of experience, strong understanding on web application development</p>
-    <h3>open source contributions</h3>
-    <ul>
+    <h2>open source contributions</h2>
+    <ul class="hSpace">
       <li><a href="https://github.com/rmanivannan/speedometer-jquery-plugin" target="_blank">speedometer-jquery-plugin</a></li>
-      <li><a href="https://github.com/rmanivannan/grunt-rekai" target="_blank">grunt-rekai</a></li>
+      <li><a href="https://www.npmjs.com/package/grunt-rekai" target="_blank">grunt-rekai</a></li>
       <li><a href="https://github.com/rmanivannan/sencha-slider-reusable" target="_blank">sencha-slider-reusable</a></li>
-      <li><a href="https://github.com/rmanivannan/idle-state-listener" target="_blank">idle-state-listener</a></li>
+      <li><a href="https://www.npmjs.com/package/idle-state-listener" target="_blank">idle-state-listener</a></li>
     </ul>
   </section>
-    <h3>skills</h3>
-    <img src="http://rmanivannan.github.io/portfolio.htm" alt="html, css, js, node, mongodb, npm, grunt, webpack">
-    <h3>education</h3>
+    <h2>skills</h2>
+    <img src="mani-skills.png" width="500" alt="html, css, js, node, mongodb, npm, grunt, webpack">
+    <h2>education</h2>
     <ul>
       <li>2004 | 86% | sslc</li>
       <li>2006 | 83% | hsc</li>
       <li>2010 | 77% | b.e</li>
     </ul>
-    <h3>experience</h3>
+    <h2>experience</h2>
     <ul>
       <li>mphasis (2010 - 2013)</li>
       <li>css (2013 - 2014)</li>
@@ -76,12 +74,61 @@
       max-width: 700px;
       margin: 0 auto;
       padding: 10px 10px;
+      line-height: 1.6;
+      letter-spacing: 1px;
     }
+
+    a.logo{
+      padding: 10px;
+      background-color: #153b68;
+      color: #fff;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      display: inline-block;
+      text-align: center;
+      position: relative;
+      text-decoration: none;
+    }
+    .logo i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      font-style: normal;
+    }
+    .logo:hover i,.logo:focus i,.logo:active i{
+      opacity: 1;
+    }
+    .logo i::after{
+      content: "mani";
+      color: #fff;
+      position: absolute;
+      top: 4px;
+      left: 3px;
+      text-shadow: 1px 1px 2px #153b68;
+      background-color: #153b68;
+      padding: 6px 10px;
+      border-radius: 33px;
+    }
+    .logo i::before{
+      content: " ";
+      display: inline-block;
+      position: absolute;
+      background-color: #153b68;
+      width: 19px;
+      height: 36px;
+      left: 26px;
+      top: 3px;
+      border-radius: 10px;
+    }
+
     body.night{
-      background: #333;
-      color: #ccc;
+      background: #191919 url("bg.png") ;
+      color: #aaa;
+      background-blend-mode: difference;
     }
-    a:link {
+    a {
         color: #444;
     }
     a:visited {
@@ -93,7 +140,7 @@
     a:active {
         color: #222;
     }
-    .night a:link {
+    .night a {
         color: #aaa;
     }
     .night a:visited {
@@ -110,6 +157,26 @@
     }
     .cb{
       clear: both;
+    }
+
+    h1,h2,h3,h4{
+      padding-bottom: 10px;
+      color: #bbb;
+      border-bottom: 4px solid #153b68;
+    }
+    .day h1,.day h2,.day h3,.day h4{
+      color: #777;
+    }
+    hr{
+      border: 0;
+      border-bottom: 4px solid #153b68;
+    }
+    .hSpace a{
+      
+      transition: letter-spacing 0.5s;
+    }
+    .hSpace a:hover{
+      letter-spacing: 1.5px;
     }
   </style>
   <script>
