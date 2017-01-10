@@ -234,6 +234,13 @@
       addMetaForURLBarTheme("apple-mobile-web-app-status-bar-style",themeColor);
     }
     updateUrlBarColor(isNight);
+	  
+	  
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('./sw.js')
+            .then(function() { console.log('Service Worker Registered'); });
+    }
 
   </script>
 </body></html>
