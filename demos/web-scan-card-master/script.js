@@ -39,7 +39,7 @@ var numericSample = [[{ "x": 4, "y": 0 }, { "x": 5, "y": 0 }, { "x": 6, "y": 0 }
         //context.drawImage(ccImg, -70, -280, 520, 600); // cc1.jpg
         //context.drawImage(ccImg, 0, -190, 425, 375); // cc2.jpg
         //context.drawImage(ccImg, 0, -5, 400, 600); // cc3.jpg
-        context.drawImage(ccImg, -20, -220, 450, 400); // cc4.png
+        context.drawImage(ccImg, -20, -200, 430, 370); // cc4.png
     }, 100);
 
 
