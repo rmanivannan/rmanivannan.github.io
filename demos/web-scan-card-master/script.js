@@ -301,7 +301,7 @@ var numericSample = [[{ "x": 4, "y": 0 }, { "x": 5, "y": 0 }, { "x": 6, "y": 0 }
         });
 
         var newSortedMapList = [];
-        for (var i = 0; i < rectEdges.length - 1; i++) {
+        for (var i = 0; i < rectEdges.length; i++) {
             newSortedMapList[i] = matchList[rectEdges[i].index];
         }
         matchList = newSortedMapList;
