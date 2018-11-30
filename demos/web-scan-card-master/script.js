@@ -307,10 +307,10 @@ var numericSample = [[{ "x": 4, "y": 0 }, { "x": 5, "y": 0 }, { "x": 6, "y": 0 }
         matchList = newSortedMapList;
 
 
-        for (var i =0;i< rectEdges.length-1;i++){
+        for (var i =0;i< rectEdges.length;i++){
             var rect1 = rectEdges[i];
             if(rect1){
-                for (var j = i; j < rectEdges.length - 1; j++) {
+                for (var j = i; j < rectEdges.length; j++) {
                     var rect2 = rectEdges[j];
                     if (i != j && rect2 && rect1 && isIntersectRects(rect1, rect2)){
                         matchList[i] = matchList[i] && matchList[i].concat(matchList[j]);
