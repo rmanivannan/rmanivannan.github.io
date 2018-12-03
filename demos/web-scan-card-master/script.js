@@ -87,13 +87,22 @@
         window.vid = video;
         
         function getWebcam(){ 
-        
-            navigator.getUserMedia({ video: true, audio: false }, function(stream) {
-            video.src = window.URL.createObjectURL(stream);
-            track = stream.getTracks()[0];
-            }, function(e) {
-            console.error('Rejected!', e);
-            });
+            var constraints = {
+                advanced: [{
+                    facingMode: "environment"
+                }]
+            };
+            navigator.getUserMedia({ 
+                video: constraints, 
+                audio: false }, 
+                function(stream) {
+                    video.src = window.URL.createObjectURL(stream);
+                    track = stream.getTracks()[0];
+                }, 
+                function(e) {
+                    console.error('Rejected!', e);
+                }
+            );
         }
         
         getWebcam();
