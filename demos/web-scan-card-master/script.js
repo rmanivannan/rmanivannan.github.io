@@ -142,9 +142,10 @@
                 // ctx.translate( -centerX, -centerY );
                 
                 ctx.globalAlpha = 0.1;
-                ctx.drawImage(video, 0, 0, width, height);
-                
-                ctx.restore();
+                if(track){
+                    ctx.drawImage(video, 0, 0, width, height);
+                    ctx.restore();
+                }
 
             }
             
@@ -153,8 +154,8 @@
             }
             
             video.addEventListener('loadedmetadata',function(){
-                width =  video.videoWidth/2;
-                height = video.videoHeight/2;
+                width =  video.videoWidth;
+                height = video.videoHeight;
 
                 canvas.width = cardImgWidth;
                 canvas.height = cardImgHeight;
