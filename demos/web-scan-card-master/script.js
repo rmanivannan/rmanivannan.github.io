@@ -19,7 +19,7 @@
     var ignoreNoicePixcelsIflessersize = 10;
     var ignoreNoicePixcelsIfLargersize = 350;
     var minEligibleScore = 0.4;
-    var startCoodrinateToscan = [10,84];
+    var startCoodrinateToscan = [10,106];
     var boxSizeToscan = [280,18];
     
     var cardImgWidth = 310;
