@@ -374,7 +374,7 @@
 
 
         matchList = matchList.filter(function name(a) {
-            return (a.length > ignoreNoicePixcelsIflessersize && a.length < ignoreNoicePixcelsIfLargersize);
+            return a.length < ignoreNoicePixcelsIfLargersize;
         })
 
         // mergigng nearset groups 
@@ -459,6 +459,10 @@
 
         matchList = matchList.filter(function (a) {
             return !!a;
+        })
+
+        matchList = matchList.filter(function name(a) {
+            return a.length > ignoreNoicePixcelsIflessersize;
         })
 
         //wipeout
