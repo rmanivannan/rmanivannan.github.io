@@ -19,8 +19,9 @@
     var ignoreNoicePixcelsIflessersize = 10;
     var ignoreNoicePixcelsIfLargersize = 350;
     var minEligibleScore = 0.4;
-    var startCoodrinateToscan = [10,106];
-    var boxSizeToscan = [280,18];
+    
+    var startCoodrinateToscan = [10,96];
+    var boxSizeToscan = [280,20];
     
     var cardImgWidth = 310;
     var cardImgHeight = 190;
@@ -47,7 +48,7 @@
         //ctx.drawImage(ccImg, -70, -280, 520, 600); // cc1.jpg
         //ctx.drawImage(ccImg, 0, -190, 425, 375); // cc2.jpg
         //ctx.drawImage(ccImg, 0, -5, 400, 600); // cc3.jpg
-        //ctx.drawImage(ccImg, 0, 0, cardImgWidth, cardImgHeight); // cc4.png
+        ctx.drawImage(ccImg, 0, -3, cardImgWidth, cardImgHeight); // cc4.png
     }, 100);
 
 
