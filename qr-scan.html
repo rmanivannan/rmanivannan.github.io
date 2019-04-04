@@ -1,35 +1,130 @@
 
 
 
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff.com</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+  <title>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff.com</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 </head>
+
 <body>
+
+  <header class="header">
+    <div class="align-center"><a href="javascript:void(0)" tabindex="" class=""><img class="header-logo" alt="Visa"
+          src="data:image/png;base64,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"></a>
+    </div>
+  </header>
+  <section class='cnt'>
+  <h1>Scan your Linked in QR code</h1>
+  <h2>Steps:</h2>
+  <ul>
+    <li>Open Linked in App</li>
+    <li>Find QR code</li>
+    <li>Scan QR</li>
+  </ul>
+  <video id="preview"></video>
   
-    <h1>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff.com</h1>
+  <h2>List of users Enrolled</h2>
+  <input type='button' value='Download as CSV' onclick="downloadCsv()" />
+  <ul id='userList'></ul>
+  </section>
+
+
+
+  <script type="text/javascript">
     
-    <video id="preview"></video>
-    <script type="text/javascript">
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      scanner.addListener('scan', function (content) {
-        alert(content);
-      });
-      Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-          scanner.start(cameras[0]);
-        } else {
-          console.error('No cameras found.');
-        }
-      }).catch(function (e) {
-        console.error(e);
-      });
-    </script>
-   
+    var userList = document.getElementById('userList');
+    let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+    
+    scanner.addListener('scan', function (content) {
+      if(!confirm('Do you want to add: "'+ content +'"')){
+        return;
+      }
+      var elm = document.createElement('li');
+      elm.innerHTML = '<a href="'+ content + '" target="_blank">'+ content +'</a>';
+      userList.appendChild(elm);
+      addToLS(content);
+    });
+
+    Instascan.Camera.getCameras().then(function (cameras) {
+      if (cameras.length > 0) {
+        scanner.start(cameras[1] || cameras[0]);
+      } else {
+        console.error('No cameras found.');
+      }
+    }).catch(function (e) {
+      console.error(e);
+    });
+
+    function downloadCsv(){
+      var rows = getListFromLS().map(function (a) {
+        return [a];
+      })
+
+      var csvContent = "data:text/csv;charset=utf-8," + rows.map(e => e.join(",")).join("\n");
+
+      var encodedUri = encodeURI(csvContent);
+      var link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "my_data.csv");
+      document.body.appendChild(link); // Required for FF
+
+      link.click();
+    }
+
+    function addToLS(cnt) {
+      var list = getListFromLS();
+      list.push(cnt);
+      window.localStorage.list = JSON.stringify(list);
+    }
+
+    function getListFromLS() {
+      return window.localStorage.list && JSON.parse(window.localStorage.list) || [];
+    }
+
+    function loadFromLS() {
+      var list = getListFromLS();
+      for(var content of list){
+        var elm = document.createElement('li');
+        elm.innerHTML = '<a href="' + content + '" target="_blank">' + content + '</a>';
+        userList.appendChild(elm);
+      }
+    }
+
+    loadFromLS();
+  </script>
+
+<style>
+.header {
+    overflow: hidden;
+    background-color: #15195A;
+    border-bottom: 6px solid #F2C933;
+}
+.header-logo {
+    height: 25px;
+    width: 79px;
+    margin: 20px 0 20px 25px;
+    vertical-align: bottom;
+}
+body, HTML{
+  margin: 0;
+}
+.cnt{
+  padding: 10px;
+}
+</style>
 </body>
+
 </html>
 
 
