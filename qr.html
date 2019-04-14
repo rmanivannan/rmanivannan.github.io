@@ -125,7 +125,7 @@
          });
          Instascan.Camera.getCameras().then(function (cameras) {
             alert(cameras.length)
-            alert(JSON.tsringify(cameras))
+            alert(JSON.stringify(cameras))
            if (cameras.length > 0) {
              scanner.start(cameras[camera]);
            } else {
