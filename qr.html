@@ -148,7 +148,6 @@
          function addToLS(cnt) {
            var list = getListFromLS();
            list.push(cnt);
-           alert(JSON.stringify(list));
            window.localStorage.list = JSON.stringify(list);
          }
          function getListFromLS() {
@@ -233,7 +232,10 @@
          }
          
          function succesMsgOnsaveDetails() {
-           alert('Thanks! You Profile infermation catpured Successfully. will keep in touch soon.')
+            setTimeout(function(){
+               alert('Thanks! You Profile infermation catpured Successfully. will keep in touch soon.');
+            },1000);
+           
          }
          
          function saveManualEntry() {
