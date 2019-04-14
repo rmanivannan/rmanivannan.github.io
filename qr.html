@@ -45,7 +45,7 @@
             </ul>
             <video id="preview"></video>
             <br /><br />
-            <input type='button' onclick="navToManualEnterPage()" class="primary button" value="Do not have linked App? Click here to enter you details manually">
+            <button class="button primary" onclick="navToManualEnterPage()" type="button" >Do not have linked App? Click here to enter you details manually</button>
          </div>
          <div class='view view-qr-email-phone'>
             <h1>Your Linkedin profile is captured !!</h1>
@@ -92,10 +92,10 @@
             </form>
          </div>
          <div class='view view-admin'>
-            <input class='button primary' type='button' value='Toggle Camera(front/back)' onclick="toggleCamera()" />
-            <input class='button primary' type='button' value='Toggle Camera Mirror view' onclick="toggleCameraMirron()" />
+            <button class="button primary" onclick="toggleCamera()" type="button" >Toggle Camera(front/back)</button>
+            <button class="button primary" onclick="toggleCameraMirron()" type="button" >Toggle Camera Mirror view</button>
             <h2>List of Enrolled Users</h2>
-            <input class='button primary' type='button' value='Download as CSV' onclick="downloadCsv()" />
+            <button class="button primary" onclick="downloadCsv()" type="button" >Download as CSV</button>
             <ul id='userList'></ul>
          </div>
       </section>
