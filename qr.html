@@ -1,0 +1,426 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
+      <!--script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script-->
+      <link rel='shortcut icon' href="logo.png" />
+      <!-- Appple Touch Icons -->
+      <link rel="apple-touch-icon" sizes="57x57" href="logo.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="logo.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="logo.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="logo.png" />
+      <link rel="apple-touch-icon" href="logo.png" />
+
+      <title>Share your profile with Visa</title>
+      <!--script src="https://rawgit.com/Baedda/floating-form-labels/master/dist/floatingFormLabels.min.js"></script-->
+      <script src='./qr-jss.js'></script>
+   </head>
+   <body>
+      <header class="header">
+         <div class="align-center"><a href="javascript:void(0)" tabindex="" class="">
+            <img class="header-logo" alt="Visa"
+               onclick="navToQRPage()"
+               src="data:image/png;base64,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"></a>
+            <img
+               class="adminicon"
+               onclick="naveToAdmin()"
+               src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ3NC41NjUgNDc0LjU2NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDc0LjU2NSA0NzQuNTY1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPGc+Cgk8cGF0aCBkPSJNMjU1LjIwNCwxMDIuM2MtMC42MDYtMTEuMzIxLTEyLjE3Ni05LjM5NS0yMy40NjUtOS4zOTVDMjQwLjA3OCw5NS4xMjYsMjQ3Ljk2Nyw5OC4yMTYsMjU1LjIwNCwxMDIuM3oiIGZpbGw9IiMwMDAwMDAiLz4KCTxwYXRoIGQ9Ik0xMzQuNTI0LDczLjkyOGMtNDMuODI1LDAtNjMuOTk3LDU1LjQ3MS0yOC45NjMsODMuMzdjMTEuOTQzLTMxLjg5LDM1LjcxOC01NC43ODgsNjYuODg2LTYzLjgyNiAgIEMxNjMuOTIxLDgxLjY4NSwxNTAuMTQ2LDczLjkyOCwxMzQuNTI0LDczLjkyOHoiIGZpbGw9IiMwMDAwMDAiLz4KCTxwYXRoIGQ9Ik00My45ODcsMTQ4LjYxN2MxLjc4Niw1LjczMSw0LjEsMTEuMjI5LDYuODQ5LDE2LjQzOEwzNi40NCwxNzkuNDU5Yy0zLjg2NiwzLjg2Ni0zLjg2NiwxMC4xNDEsMCwxNC4wMTVsMjUuMzc1LDI1LjM4MyAgIGMxLjg0OCwxLjg0OCw0LjM4LDIuODg4LDcuMDE5LDIuODg4YzIuNjEsMCw1LjEyNS0xLjA0LDcuMDA1LTIuODg4bDE0LjM4LTE0LjQwNGMyLjE1OCwxLjE0Miw0LjU1LDEuODQyLDYuNzg1LDIuODI3ICAgYzAtMC4xNjQtMC4wMTYtMC4zMzQtMC4wMTYtMC40OThjMC0xMS43NzEsMS4zNTItMjIuODc1LDMuNzU5LTMzLjMwMmMtMTcuMzYyLTExLjE3NC0yOC45NDctMzAuNTctMjguOTQ3LTUyLjcxNSAgIGMwLTM0LjU5MiwyOC4xMzktNjIuNzM5LDYyLjcyMy02Mi43MzljMjMuNDE4LDAsNDMuNjM3LDEzLjAzNyw1NC40MywzMi4wODRjMTEuNTIzLTEuNDI5LDIyLjM0Ny0xLjQyOSwzNS4zNzYsMS4wMzMgICBjLTEuNjc2LTUuMDctMy42NDgtMTAuMDMyLTYuMTE4LTE0LjY4M2wxNC4zOTYtMTQuNDExYzEuODc4LTEuODU2LDIuOTE4LTQuMzgsMi45MTgtNy4wMDRjMC0yLjYyNS0xLjA0LTUuMTQ4LTIuOTE4LTcuMDA0ICAgbC0yNS4zNjEtMjUuMzY3Yy0xLjk0LTEuOTQxLTQuNDcyLTIuOTA0LTcuMDAzLTIuOTA0Yy0yLjUzMiwwLTUuMDYzLDAuOTYzLTYuOTg5LDIuOTA0bC0xNC40NDIsMTQuNDExICAgYy01LjIxNy0yLjc2NC0xMC42OTktNS4wNzgtMTYuNDQ0LTYuODI1VjkuOWMwLTUuNDY2LTQuNDExLTkuOS05Ljg5My05LjloLTM1Ljg4OGMtNS40NTEsMC05LjkwOSw0LjQzNC05LjkwOSw5Ljl2MjAuMzU5ICAgYy01LjczLDEuNzQ3LTExLjIxMyw0LjA2MS0xNi40NDYsNi44MjVMNzUuODM5LDIyLjY4OWMtMS45NDItMS45NDEtNC40NzMtMi45MDQtNy4wMDUtMi45MDRjLTIuNTMxLDAtNS4wNzcsMC45NjMtNy4wMDMsMi44OTYgICBMMzYuNDQsNDguMDQ4Yy0xLjg0OCwxLjg2NC0yLjg4OCw0LjM3OS0yLjg4OCw3LjAxMmMwLDIuNjMyLDEuMDQsNS4xNDgsMi44ODgsNy4wMDRsMTQuMzk2LDE0LjQwMyAgIGMtMi43NSw1LjIxOC01LjA2MywxMC43MDgtNi44MTcsMTYuNDM4SDIzLjY3NWMtNS40ODIsMC05LjkwOSw0LjQ0MS05LjkwOSw5LjkxNXYzNS44ODljMCw1LjQ1OCw0LjQyNyw5LjkwOCw5LjkwOSw5LjkwOEg0My45ODd6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8cGF0aCBkPSJNMzU0Ljg3MSwzNDAuNjU0YzE1Ljg3Mi04LjcwNSwyNi43NzMtMjUuMzY3LDI2Ljc3My00NC43MDNjMC0yOC4yMTctMjIuOTY3LTUxLjE2OC01MS4xODQtNTEuMTY4ICAgYy05LjkyMywwLTE5LjExOCwyLjk2Ni0yNi45NzUsNy44NzNjLTQuNzA1LDE4LjcyOC0xMi4xMTMsMzYuNjQyLTIxLjgwMyw1Mi4yMDJDMzA5LjE1MiwzMTAuMDIyLDMzNC4zNTcsMzIyLjUzMSwzNTQuODcxLDM0MC42NTR6ICAgIiBmaWxsPSIjMDAwMDAwIi8+Cgk8cGF0aCBkPSJNNDYwLjc4MiwyNzYuNTg4YzAtNS45MDktNC43OTktMTAuNjkzLTEwLjY4NS0xMC42OTNINDI4LjE0Yy0xLjg5Ni02LjE4OS00LjQxMS0xMi4xMjEtNy4zOTMtMTcuNzVsMTUuNTQ0LTE1LjU0NCAgIGMyLjAyLTIuMDA0LDMuMTM3LTQuNzIxLDMuMTM3LTcuNTU1YzAtMi44MzUtMS4xMTgtNS41NTMtMy4xMzctNy41NjNsLTI3LjM2My0yNy4zNzFjLTIuMDgtMi4wOS00LjgyOS0zLjEzOC03LjU2MS0zLjEzOCAgIGMtMi43MzQsMC01LjQ2NywxLjA0OC03LjU0NywzLjEzOGwtMTUuNTc2LDE1LjU1MmMtNS42MjMtMi45ODItMTEuNTM5LTUuNDgxLTE3Ljc1MS03LjM2OXYtMjEuOTU4ICAgYzAtNS45MDEtNC43NjgtMTAuNjg1LTEwLjY2OS0xMC42ODVIMzExLjExYy0yLjU5NCwwLTQuODc3LDEuMDQtNi43MzksMi41NzhjMy4yNiwxMS44OTUsNS4wNDYsMjQuNzkzLDUuMDQ2LDM4LjU1MiAgIGMwLDguNzM1LTAuNjgyLDE3LjYwNC0xLjk1NiwyNi40MjNjNy4yMDUtMi42NTYsMTQuODc2LTQuMzI0LDIyLjk5OS00LjMyNGMzNi45OSwwLDY3LjA4NiwzMC4wODksNjcuMDg2LDY3LjA3ICAgYzAsMjMuNjM3LTEyLjM0NSw0NC4zNTMtMzAuODcyLDU2LjMwM2MxMy40OCwxNC43ODQsMjQuMTk1LDMyLjMyNCwzMS4xNjgsNTEuOTc2YzEuMTQ4LDAuMzk2LDIuMzQ0LDAuNjg0LDMuNTQsMC42ODQgICBjMi43MzMsMCw1LjQ2Ny0xLjA0LDcuNTYzLTMuMTNsMjcuMzc5LTI3LjM3MWMyLjAwNC0yLjAwNCwzLjEwNi00LjcyMSwzLjEwNi03LjU1NXMtMS4xMDItNS41NTEtMy4xMDYtNy41NjNsLTE1LjU3Ni0xNS41NTIgICBjMi45ODItNS42MjEsNS40OTctMTEuNTU1LDcuMzkzLTE3Ljc1aDIxLjk1N2MyLjgyNiwwLDUuNTc1LTEuMTE4LDcuNTYzLTMuMTM4YzIuMDA0LTEuOTk2LDMuMTM4LTQuNzIsMy4xMzgtNy41NTUgICBMNDYwLjc4MiwyNzYuNTg4eiIgZmlsbD0iIzAwMDAwMCIvPgoJPHBhdGggZD0iTTM3Ni4wMzgsNDEzLjkwNmMtMTYuNjAyLTQ4Ljg0OC02MC40NzEtODIuNDQ1LTExMS4xMTMtODcuMDE4Yy0xNi45NTgsMTcuOTU4LTM3Ljk1NCwyOS4zNTEtNjEuNzMxLDI5LjM1MSAgIGMtMjMuNzU5LDAtNDQuNzcxLTExLjM5Mi02MS43MTMtMjkuMzUxYy01MC42NzIsNC41NzMtOTQuNTQzLDM4LjE3LTExMS4xNDUsODcuMDI2bC05LjE3NywyNy4wMTMgICBjLTIuNjI1LDcuNzczLTEuMzY4LDE2LjMzOCwzLjQxNiwyMy4wMDdjNC43ODMsNi42NzEsMTIuNDg2LDEwLjYzMSwyMC42ODUsMTAuNjMxaDMxNS44NTNjOC4yMTUsMCwxNS45MTgtMy45NiwyMC43MDItMTAuNjMxICAgYzQuNzY3LTYuNjY5LDYuMDQxLTE1LjIzNCwzLjQtMjMuMDA3TDM3Ni4wMzgsNDEzLjkwNnoiIGZpbGw9IiMwMDAwMDAiLz4KCTxwYXRoIGQ9Ik0xMjAuODQyLDIwNi43ODJjMCw2MC41ODksMzYuODgzLDEyNS42MDMsODIuMzUyLDEyNS42MDNjNDUuNDg3LDAsODIuMzY4LTY1LjAxNCw4Mi4zNjgtMTI1LjYwMyAgIEMyODUuNTYzLDgxLjE4OCwxMjAuODQyLDgwLjkzOSwxMjAuODQyLDIwNi43ODJ6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+         </div>
+      </header>
+      <section class='cnt align-center'>
+         <div class='view view-qr-scan'>
+            <h1>Scan your Linked in QR code</h1>
+            <h2>Steps:</h2>
+            <ul>
+               <li>Open Linked in App</li>
+               <li>Find QR code</li>
+               <li>Scan QR</li>
+            </ul>
+            <video id="preview"></video>
+            <br /><br />
+            <input type='button' onclick="navToManualEnterPage()" class="primary button" value="Do not have linked App? Click here to enter you details manually">
+         </div>
+         <div class='view view-qr-email-phone'>
+            <h1>Your Linkedin profile is captured !!</h1>
+            <h2>Please Add few more details to complete</h2>
+            <form onsubmit="saveQRemailphone()" action='#'>
+               <div class="ffl-wrapper">
+                  <label for="email" class="ffl-label">Email</label>
+                  <input type="email" id="email" name="email">
+               </div>
+               <div class="ffl-wrapper">
+                  <label for="phone1" class="ffl-label">Mobile Number (10 digit)</label>
+                  <input type="number" max="10000000000" required id="phone1" name="phone1">
+               </div>
+               <br/>
+               <button class="button primary" type="submit" >Submit</button>
+               <button class="button secondary" type="button" onclick="navToQRPage()">Cancel</button>
+            </form>
+         </div>
+         <div class='view view-manual-entry'>
+            <h1>Enter Details Mannually</h1>
+            <form onsubmit="saveManualEntry()" action='#'>
+               <div class="ffl-wrapper">
+                  <label for="name" class="ffl-label">Name</label>
+                  <input required type="text" id="name" name="name">
+               </div>
+               <div class="ffl-wrapper">
+                  <label for="emailid" class="ffl-label">Email</label>
+                  <input required type="email" id="emailid" name="emailid">
+               </div>
+               <div class="ffl-wrapper">
+                  <label for="phone2" class="ffl-label">Mobile Number</label>
+                  <input required type="text" maxlength='10' id="phone2" name="phone2">
+               </div>
+               <div class="ffl-wrapper">
+                  <label for="compny" class="ffl-label">Current Company <span>(optional)</span></label>
+                  <input type="compny" id="compny" name="compny">
+               </div>
+               <div class="ffl-wrapper">
+                  <label for="Skills" class="ffl-label">Skills</label>
+                  <textarea required id="Skills" name="Skills"></textarea>
+               </div>
+               <button class="button primary" type="submit">Submit</button>
+               <button class="button secondary" type="button" onclick="navToQRPage()">Cancel</button>
+            </form>
+         </div>
+         <div class='view view-admin'>
+            <input class='button primary' type='button' value='Toggle Camera(front/back)' onclick="toggleCamera()" />
+            <input class='button primary' type='button' value='Toggle Camera Mirror view' onclick="toggleCameraMirron()" />
+            <h2>List of Enrolled Users</h2>
+            <input class='button primary' type='button' value='Download as CSV' onclick="downloadCsv()" />
+            <ul id='userList'></ul>
+         </div>
+      </section>
+      <script type="text/javascript">
+         var userList = document.getElementById('userList');
+         
+         var mirrorVal = window.localStorage.CameraMirror == 'true';
+         var camera = window.localStorage.Camera == '1' ? 1 : 0;
+         
+         let scanner = new Instascan.Scanner({ 
+                                                 video: document.getElementById('preview'),
+                                                 mirror: mirrorVal
+                                             });
+         
+         scanner.addListener('scan', function (content) {
+           if (window.linkedinUrl) {
+             return;
+           }
+           if(content.indexOf('https://www.linkedin.com/') == 0){ // if linked in url
+             //var elm = document.createElement('li');
+             //elm.innerHTML = '<a href="' + content + '" target="_blank">' + content + '</a>';
+             //userList.appendChild(elm);
+             //addToLS(content);
+             window.linkedinUrl = content;
+             openEnterQREmailPhonePage();
+           }
+         });
+         Instascan.Camera.getCameras().then(function (cameras) {
+           if (cameras.length > 0) {
+             scanner.start(cameras[camera]);
+           } else {
+             console.error('No cameras found.');
+           }
+         }).catch(function (e) {
+           console.error(e);
+         });
+         function downloadCsv() {
+           var rows = getListFromLS().map(function (a) {
+             return [a.email,a.phone,a.linkedinUrl,a.name,a.compny, a.skills&&a.skills.replace(/\,/ig,'; ').replace(/\n/ig, '; ')];
+           })
+           rows.unshift(['Email', 'Phone', 'Linkedin URL', 'Name', 'Company', 'Skills' ]);
+           var csvContent = "data:text/csv;charset=utf-8," + rows.map(e => e.join(",")).join("\n");
+           var encodedUri = encodeURI(csvContent);
+           var link = document.createElement("a");
+           link.setAttribute("href", encodedUri);
+           link.setAttribute("download", "my_data.csv");
+           document.body.appendChild(link); // Required for FF
+           link.click();
+         }
+         function addToLS(cnt) {
+           var list = getListFromLS();
+           list.push(cnt);
+           alert(JSON.stringify(list));
+           window.localStorage.list = JSON.stringify(list);
+         }
+         function getListFromLS() {
+           return window.localStorage.list && JSON.parse(window.localStorage.list) || [];
+         }
+         function loadFromLS() {
+           userList.innerHTML = '';
+           var list = getListFromLS();
+           for (var content of list) {
+             var elm = document.createElement('li');
+             var val = content.name || content.email || content.phone || content.linkedinUrl || content;
+             elm.innerHTML = '<a href="' + content + '" target="_blank">' + val + '</a>';
+             userList.appendChild(elm);
+           }
+         }
+         loadFromLS();
+         
+         
+         
+         $('.ffl-wrapper').floatingFormLabels();
+         
+         
+         
+         function openEnterQREmailPhonePage(){
+           $('.view').hide()
+           $('.view-qr-email-phone').show();
+         }
+         
+         function navToManualEnterPage() {
+             $('.view').hide()
+             $('.view-manual-entry').show();
+           }
+         
+         function navToQRPage() {
+           $('.view').hide()
+           $('.view-qr-scan').show();
+           window.linkedinUrl = '';
+         }
+         
+         function naveToAdmin() {
+         
+           if((prompt('Enter Admin password').toLowerCase()) == 'visaadmin'){
+             $('.view').hide()
+             $('.view-admin').show();
+             loadFromLS();
+           }
+         }
+         
+         function toggleCameraMirron() {
+           if(window.localStorage.CameraMirror && window.localStorage.CameraMirror == 'true'){
+             window.localStorage.CameraMirror = false;
+           }else{
+             window.localStorage.CameraMirror = true;
+           }
+           alert('Updated Successfully!! value : '+window.localStorage.CameraMirror);
+           window.location.reload()
+         }
+         
+         function toggleCamera() {
+             if (window.localStorage.Camera && window.localStorage.Camera == '1') {
+               window.localStorage.Camera = '0';
+             } else {
+               window.localStorage.Camera = '1';
+             }
+             alert('Updated Successfully!! value : ' + window.localStorage.Camera);
+             window.location.reload()
+           }
+         
+         function saveQRemailphone() {
+           event.preventDefault();
+           var email = $('.view-qr-email-phone #email').val();
+           var phone = $('.view-qr-email-phone #phone1').val();
+           linkedinUrl = window.linkedinUrl;
+           addToLS({
+             email: email,
+             phone: phone,
+             linkedinUrl: linkedinUrl
+           });
+           navToQRPage()
+           succesMsgOnsaveDetails();
+           return;
+         }
+         
+         function succesMsgOnsaveDetails() {
+           alert('Thanks! You Profile infermation catpured Successfully. will keep in touch soon.')
+         }
+         
+         function saveManualEntry() {
+             event.preventDefault();
+             var name = $('.view-manual-entry #name').val();
+             var email = $('.view-manual-entry #emailid').val();
+             var phone = $('.view-manual-entry #phone2').val();
+             var compny = $('.view-manual-entry #compny').val();
+             var skills = $('.view-manual-entry #Skills').val();
+             linkedinUrl = window.linkedinUrl;
+             addToLS({
+               email: email,
+               phone: phone,
+               linkedinUrl: '',
+               name: name,
+               compny: compny,
+               skills: skills
+         
+             });
+             navToQRPage()
+             succesMsgOnsaveDetails();
+             return;
+           }
+
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                                   .then(function() { console.log('Service Worker Registered'); });
+          }
+
+          window.addEventListener("load",function() {
+            setTimeout(function(){
+            // This hides the address bar:
+            window.scrollTo(0, 1);
+            }, 0);
+          });
+         
+         navToQRPage();
+      </script>
+      <style>
+         *{
+         font-family: open-sans, sans-serif, Tahoma;
+         }
+         .align-center{
+         max-width: 720px;
+         margin: 0 auto;
+         }
+         h1 {
+         color: #1E237E;
+         font-size: 30px;
+         font-weight: 300; }
+         h2 {
+         font-size: 24px;
+         color: #003EA9;
+         font-weight: 300; }
+         h3 {
+         color: #565656;
+         font-size: 18px;
+         font-weight: 600; }
+         p {
+         font-size: 14px; }
+         .header {
+         overflow: hidden;
+         background-color: #15195A;
+         border-bottom: 6px solid #F2C933;
+         }
+         .header-logo {
+         height: 25px;
+         width: 79px;
+         margin: 20px 0 20px 25px;
+         vertical-align: bottom;
+         }
+         .adminicon{
+         float: right;
+         width: 40px;
+         height: 40px;
+         background: #eee;
+         margin: 12px;
+         }
+         body,
+         HTML {
+         margin: 0;
+         }
+         .cnt {
+         padding: 10px;
+         }
+         .ffl-wrapper {
+         position: relative;
+         display: block;
+         padding-top: 1rem;
+         }
+         .ffl-wrapper .ffl-label {
+         transition-property: all;
+         transition-duration: 200ms;
+         transition-timing-function: ease;
+         transition-delay: 0s;
+         position: absolute;
+         white-space: nowrap;
+         max-width: 100%;
+         text-overflow: ellipsis;
+         overflow: hidden;
+         pointer-events: none;
+         top: 1.25rem;
+         }
+         .ffl-wrapper.ffl-floated .ffl-label {
+         top: 0;
+         }
+         .ffl-label {
+         color: #666;
+         line-height: 1.2;
+         }
+         .ffl-floated .ffl-label {
+         color: #003EA9;
+         font-size: 0.75rem;
+         }
+         form {
+         }
+         form:after {
+         content: "";
+         display: block;
+         clear: both;
+         }
+         .ffl-wrapper input,
+         .ffl-wrapper textarea,
+         .ffl-wrapper select {
+         transition: border-bottom 100ms ease;
+         display: block;
+         width: 100%;
+         padding: 0;
+         margin-bottom: 1rem;
+         box-shadow: none;
+         appearance: none;
+         outline: none;
+         background-color: transparent;
+         border-style: none;
+         border-bottom-width: 1.5px;
+         border-bottom-style: solid;
+         border-bottom-color: rgba(0, 0, 0, 0.2);
+         height: 1.875rem;
+         font-size: 20px;
+         }
+         .ffl-wrapper input:hover,
+         .ffl-wrapper textarea:hover,
+         .ffl-wrapper select:hover {
+         border-bottom-width: 1.5px;
+         border-bottom-color: #666;
+         }
+         .ffl-wrapper input:focus,
+         .ffl-wrapper textarea:focus,
+         .ffl-wrapper select:focus {
+         border-bottom-width: 1.5px;
+         border-bottom-color: #003EA9;
+         }
+         textarea {
+         min-height: 100px;
+         }
+         label>span {
+         color: #cccccc;
+         }
+         .button {
+         min-width: 140px;
+         max-width: 190px;
+         padding: 12px 15px;
+         border: none;
+         font-size: 12px;
+         font-weight: bold;
+         border-radius: 0;
+         cursor: pointer;
+         margin: 0 0 15px;
+         max-width: 100%;
+         width: 100%;
+         letter-spacing: 1px;
+         }
+         .button.primary {
+         background-color: #003EA9;
+         color: #FFFFFF;
+         text-transform: uppercase;
+         letter-spacing: 1.5px;
+         }
+         .button.secondary {
+         color: #333;
+         background-color: #FFFFFF;
+         border: 1px solid #5F6083;
+         padding: 10px 15px;
+         font-size: 14px;
+         font-weight: normal;
+         text-transform: uppercase;
+         }
+      </style>
+   </body>
+</html>
