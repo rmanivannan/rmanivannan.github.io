@@ -1,6 +1,7 @@
-var cacheName = 'weatherPWA-step-6-1-rm';
+var cacheName = 'weatherPWA-step-6-2-rm';
 var filesToCache = [
   '/',
+  '/qr-jss.js',
   '/mani-skills.png'
 ];
 
