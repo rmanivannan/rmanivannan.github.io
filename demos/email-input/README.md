@@ -2,7 +2,7 @@
 
 Emails input - Javascript library helps to implement input field to capture list of email IDs, also allows to remove email ids and shows the validation error for the incorrect email-ids
 
-## [Demo Link](https://nadiafaya.github.io/emails-input/) - https://nadiafaya.github.io/emails-input/
+## [Demo Link](https://rmanivannan.github.io/demos/email-input/) - https://rmanivannan.github.io/demos/email-input/
 
 ## How to usage
 
