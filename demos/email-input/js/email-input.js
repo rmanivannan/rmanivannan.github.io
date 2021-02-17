@@ -86,7 +86,8 @@
                 elmType: 'a',
                 attrs: {
                     class: 'email-close-icon',
-                    href: "javascript:void(0)",
+                    href: 'javascript:void(0)',
+                    title: 'remove',
                     "data-id": id
                 },
                 text: 'x'
