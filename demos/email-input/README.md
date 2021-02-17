@@ -1,6 +1,6 @@
 # Emails input - plain JS library
 
-Emails input - Javascript library helps to implement input field to capture list of email IDs, also allows to remove email ids and shows the validation error for the incorrect email-ids
+Emails input - Javascript library helps to implement input field to capture list of email IDs, allows to remove email ids and shows the validation error for the incorrect email-ids
 
 ## [Demo Link](https://rmanivannan.github.io/demos/email-input/) - https://rmanivannan.github.io/demos/email-input/
 
@@ -26,6 +26,7 @@ addEventLister(document.getElementById('get-email-count'),'click',function(e){
 myEmailInput.addEmail("mani@mani.com");
 
 ```
+4. Style the element as per you design spec, or use basic style avaiable in `css/email-input-page.css`
 
 ## Capabilities
 
