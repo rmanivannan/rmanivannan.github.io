@@ -2,6 +2,7 @@
 <html>
    <head>
       <title>Email Input Demo Page</title>
+      <link rel="stylesheet" href="css/email-input-page.css">
    </head>
    <body>
       <div class="email-container">
@@ -10,5 +11,37 @@
          <input id="add-email" type="button" class='btn-primary' value='Add Email'>
          <input id="get-email-count"type="button" class='btn-primary' value='Get Email Count'>
       </div>
+      <script src="js/email-input.js"></script>
+      <script>
+         if(EmailsInput){
+            var myEmailInput = EmailsInput(document.getElementById('container'));
+
+            function addEventLister($elm, eventType, cb){
+                if ($elm.addEventListener) {                    
+                    $elm.addEventListener(eventType, cb);
+                  } else if ($elm.attachEvent) {                  
+                    $elm.attachEvent( "on" + eventType, cb);
+                  }
+            }
+            
+            function randomString(length) {
+                var result           = '';
+                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                var charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                   result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                return result;
+            }
+
+            addEventLister(document.getElementById('add-email'),'click',function(e){
+                myEmailInput.addEmail(randomString(5)+'@'+randomString(4)+'.'+randomString(3));
+            });
+
+            addEventLister(document.getElementById('get-email-count'),'click',function(e){
+                alert(myEmailInput.getEmailListCount());
+            });
+         }
+      </script>
    </body>
 </html>
