@@ -149,14 +149,28 @@
         });
 
         // Event bindings - Add email list
-        addEventLister($input, 'keyup', function(e) {
-            if (['13', '44'].indexOf(String(e.keyCode)) !== -1) {
+        addEventLister($input, 'keydown', function(e) {
+            // Enter, comma, semi-colon	
+            if (['13', '188', '186'].indexOf(String(e.keyCode)) !== -1) {
                 addInputValueToListClearInput();
+                e.preventDefault();
             }
         })
 
         addEventLister($input, 'blur', function(e) {
             addInputValueToListClearInput();
+        });
+
+        addEventLister($input, 'paste', function(e) {
+            var pastedTxt = (e.clipboardData || window.clipboardData).getData('text');
+            if (pastedTxt) {
+                var emailListPasted = pastedTxt.split(',');
+                for (var i in emailListPasted) {
+                    var emailVal = emailListPasted[i].trim();
+                    emailVal && addInputValueToListClearInput(emailVal);
+                }
+            }
+            e.preventDefault();
         });
 
         // Shift focus to input on click of email core
