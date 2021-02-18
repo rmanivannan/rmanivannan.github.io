@@ -90,7 +90,7 @@
                     title: 'remove',
                     "data-id": id
                 },
-                text: 'x'
+                text: '&#10005;'
             });
             addEventLister($close, 'click', function(e) {
                 // Todo : Future usecase - 'Model - "are you sure you wanna remove this email id?", may be configurable - true or false'
