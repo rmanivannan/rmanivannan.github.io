@@ -55,5 +55,7 @@ myEmailInput.addEmail("mani@mani.com");
 
 ## TODO
 1. Browser testing
-2. get the valid list of email ids
+2. add methods, ex., get the valid list of email ids
+3. multilingual support (Provision to pass labels 'add new email' - placeholder text and 'Remove' - title text
+4. Accessibility: Remove email - link with corresponding email id so that user would know what to remove, area-hidden to "✕" - let this announce "remove email-id:<acb@abc.com>"
 ...
