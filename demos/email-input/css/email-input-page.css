@@ -34,8 +34,11 @@
 .email-close-icon {
 	text-decoration: none;
 	color: #000;
-	padding-left: 12px;
+	margin-left: 12px;
 	font-size:12px;
+}
+a.email-close-icon:hover, a.email-close-icon:focus {
+    color: red;
 }
 
 .email-input {
