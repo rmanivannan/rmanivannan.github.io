@@ -122,7 +122,7 @@
         function addInputValueToListClearInput(val) {
             var inputVal = val || $input.value;
             if (!inputVal) return;
-            var id = String(new Date().getTime());
+            var id = String(new Date().getTime()) + '-' + Math.floor(Math.random()*10000);
             emailList[id] = {
                 val: inputVal,
                 id: id,
