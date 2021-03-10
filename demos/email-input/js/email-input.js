@@ -1,11 +1,11 @@
 (function() {
 
     function isElementOrTxt(element) {
-        return element instanceof Element || element instanceof HTMLDocument || typeof element === 'string';
+        return isElement(element) || typeof element === 'string';
     }
 
     function isElement(element) {
-        return element instanceof Element || element instanceof HTMLDocument || typeof element === 'string';
+        return element instanceof Element || element instanceof HTMLDocument;
     }
 
     function addEventLister($elm, eventType, cb) {
