@@ -3,7 +3,7 @@
 	*author: Manivannan R
 	*project: Speedometer
 */
-$.fn.myfunc = function (userPref) {
+$.fn.speedometer = function (userPref) {
   var self = this;
   this.defaultProperty = {
     maxVal              : 180,         /**Max value of the meter*/
@@ -25,7 +25,10 @@ $.fn.myfunc = function (userPref) {
     midNobW             : 10,          /**indicator mid nob width*/
     midNobH             : 3,           /**indicator mid nob height*/
     noOfSmallDiv        : 2,           /**no of small div between main div*/
-    eventListenerType   : 'change',    /**no of small div between main div*/
+    eventListenerType   : 'change',    /**type of event listener*/
+    multiplier          : 1,	       /**Center value multiplier e.g. 1 x 1000 RPM*/	
+    gagueLabel   	: 'km/h',      /**Label on guage Face*/	
+    initVal             : 0            /**Initial value*/
   }
   if(typeof userPref === 'object')
   for (var prop in userPref)this.defaultProperty[prop] = userPref[prop];
@@ -116,7 +119,7 @@ $.fn.myfunc = function (userPref) {
         tempDiv += '<div class="nob '+dangCls+'" style="left:'+induCatorLinesPosTop+'px;top:'+induCatorLinesPosLeft+'px;'+tempDegInd+'"></div>';
         induCatorNumbPosLeft = (this.defaultProperty.edgeRadius - induCatorNumbPosX) - (this.defaultProperty.numbW/2);
         induCatorNumbPosTop  = (this.defaultProperty.edgeRadius - induCatorNumbPosY) - (this.defaultProperty.numbH/2);
-	tempDiv += '<div class="numb '+dangCls+'" style="text-align: center;left:'+ induCatorNumbPosTop +'px;top:'+induCatorNumbPosLeft+'px;">'+ curIndVal +'</div>';
+        tempDiv += '<div class="numb '+dangCls+'" style="left:'+ induCatorNumbPosTop +'px;top:'+induCatorNumbPosLeft+'px;">'+ curIndVal +'</div>';
       }else{
         induCatorLinesPosLeft = (this.defaultProperty.edgeRadius - induCatorLinesPosX )-(this.defaultProperty.midNobW/2);
         induCatorLinesPosTop = (this.defaultProperty.edgeRadius - induCatorLinesPosY)-(this.defaultProperty.midNobH/2);
@@ -141,9 +144,12 @@ $.fn.myfunc = function (userPref) {
 
     this.parentElem.find(".envelope").append(speedNobe+tempDiv);
   }
-  this.changePosition = function (){   
-    console.log($(this).val())
+  this.changePositionEventListener = function (){
     var speed = $(this).val();
+    self.setPosition(speed);
+  }
+  this.setPosition = function (speed){   
+    console.log(speed);
     if(speed > self.defaultProperty.maxVal){
       speed = self.defaultProperty.maxVal;
     }
@@ -158,7 +164,9 @@ $.fn.myfunc = function (userPref) {
       "-moz-transform"    :'rotate('+speedInDeg+'deg)',
       "-o-transform"      :'rotate('+speedInDeg+'deg)'
     });
-    self.parentElem.find(".speedPosition").html(speed);
+    
+    var centerVal = speed *  self.defaultProperty.multiplier;
+    self.parentElem.find(".speedPosition").html(centerVal + "<br />" + self.defaultProperty.gagueLabel );
     
     self.parentElem.find(".envelope .nob,.envelope .numb").removeClass("bright");
     for(var i=0; i<=noOfDev; i++){
@@ -171,5 +179,6 @@ $.fn.myfunc = function (userPref) {
     }
   }
   this.creatHtmlsElecments();
-  $(this).bind(this.defaultProperty.eventListenerType,this.changePosition);
+  $(this).bind(this.defaultProperty.eventListenerType,this.changePositionEventListener);
+  return this;
 }
