@@ -180,6 +180,6 @@ $.fn.speedometer = function (userPref) {
   }
   this.creatHtmlsElecments();
   $(this).bind(this.defaultProperty.eventListenerType,this.changePositionEventListener);
-  this.setPosition(this.defaultProperty.speedPositionTxtWH);
+  this.setPosition(this.defaultProperty.initVal);
   return this;
 }
