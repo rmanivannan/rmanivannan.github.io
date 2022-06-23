@@ -137,7 +137,7 @@ $.fn.myfunc = function (userPref) {
         '<div></div>',
       '</div>',
       '<div class="speedPosition"></div>'
-    ].join();
+    ].join('');
 
     this.parentElem.find(".envelope").append(speedNobe+tempDiv);
   }
