@@ -114,9 +114,9 @@ $.fn.myfunc = function (userPref) {
                   '-moz-transform    :rotate('+curDig+'deg)',
                 ].join(";");
         tempDiv += '<div class="nob '+dangCls+'" style="left:'+induCatorLinesPosTop+'px;top:'+induCatorLinesPosLeft+'px;'+tempDegInd+'"></div>';
-        induCatorNumbPosLeft = (this.defaultProperty.edgeRadius - induCatorNumbPosX) - (this.defaultProperty.numbW/2);
-        induCatorNumbPosTop  = (this.defaultProperty.edgeRadius - induCatorNumbPosY) - (this.defaultProperty.numbH/2);
-        tempDiv += '<div class="numb '+dangCls+'" style="left:'+ induCatorNumbPosTop +'px;top:'+induCatorNumbPosLeft+'px;">'+ curIndVal +'</div>';
+        induCatorNumbPosLeft = (this.defaultProperty.edgeRadius - induCatorNumbPosX) - (this.defaultProperty.numbH/2);
+        induCatorNumbPosTop  = (this.defaultProperty.edgeRadius - induCatorNumbPosY) - (this.defaultProperty.numbW/2);
+	tempDiv += '<div class="numb '+dangCls+'" style="text-align: center;left:'+ induCatorNumbPosTop +'px;top:'+induCatorNumbPosLeft+'px;">'+ curIndVal +'</div>';
       }else{
         induCatorLinesPosLeft = (this.defaultProperty.edgeRadius - induCatorLinesPosX )-(this.defaultProperty.midNobH/2);
         induCatorLinesPosTop = (this.defaultProperty.edgeRadius - induCatorLinesPosY)-(this.defaultProperty.midNobW/2);
